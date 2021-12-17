@@ -14,16 +14,18 @@ import java.util.Set;
 @Builder
 @Getter
 @Entity
-@Table(name = "neighborhoods")
-public class Neighborhood {
+@Table(name = "cities")
+public class City {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "neighborhoods")
-    private Set<City> city;
+    @ManyToMany
+    @JoinTable( name = "cities_neighborhoods", joinColumns = @JoinColumn(name = "city_id"), inverseJoinColumns = @JoinColumn(name = "neighborhood_id"))
+    private Set<Neighborhood> neighborhoods;
 }
