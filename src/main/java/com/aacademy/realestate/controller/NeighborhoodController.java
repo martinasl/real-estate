@@ -4,6 +4,7 @@ import com.aacademy.realestate.converter.NeighborhoodConverter;
 import com.aacademy.realestate.dto.NeighborhoodDto;
 import com.aacademy.realestate.model.Neighborhood;
 import com.aacademy.realestate.service.NeighborhoodService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ public class NeighborhoodController {
     private final NeighborhoodService neighborhoodService;
     private final NeighborhoodConverter neighborhoodConverter;
 
+    @Autowired
     public NeighborhoodController(NeighborhoodService neighborhoodService, NeighborhoodConverter neighborhoodConverter) {
         this.neighborhoodService = neighborhoodService;
         this.neighborhoodConverter = neighborhoodConverter;
